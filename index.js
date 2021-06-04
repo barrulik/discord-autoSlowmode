@@ -50,7 +50,7 @@ client.on("message", async (msg) => {
 
 async function updateSlowmode(client) {
   for (c of channelData){
-    client.channels.cache.get(c.id).setRateLimitPerUser(Math.floor(c.messageCount/2));
+    client.channels.cache.get(c.id).setRateLimitPerUser(Math.floor(c.messageCount/config.messagesPerSlowmodeSecond));
     c.messageCount = 0;
   }
 }
